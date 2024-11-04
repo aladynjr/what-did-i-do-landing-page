@@ -4,9 +4,29 @@ import './App.css'
 import { Clock, BarChart2, Camera, ArrowRight, Lock } from "lucide-react"
 import { Button } from "./components/ui/button"
 import { Card } from "./components/ui/card"
-import html2canvas from 'html2canvas'; // You'll need to install this: npm install html2canvas
+import html2canvas from 'html2canvas'; 
 
-// First, create the Logo component at the top of the file
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDBzUQnvGpU5UDe85HENmkjAR2jEQ3mFjM",
+  authDomain: "what-did-i-do-f931c.firebaseapp.com",
+  projectId: "what-did-i-do-f931c",
+  storageBucket: "what-did-i-do-f931c.firebasestorage.app",
+  messagingSenderId: "138354713845",
+  appId: "1:138354713845:web:b662b584e8ca5d69ccd1bc",
+  measurementId: "G-TY186136YV"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 const Logo = ({ size = "h-10 w-10" }) => (
   <div className={`relative flex ${size} items-center justify-center rounded-2xl bg-gradient-to-br from-teal-400 via-emerald-400 to-cyan-400 shadow-lg transition-transform hover:scale-105 duration-300 overflow-hidden`}>
     {/* Base layers */}
@@ -532,6 +552,29 @@ function App() {
           </div>
         </section>
       </main>
+
+      {/* Contact Developer Section - Add this before the footer */}
+      <section className="w-full py-12 md:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact the Developer</h2>
+            <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl">
+              Have questions, feedback, or just want to say hi? Reach out on X (Twitter)!
+            </p>
+            <div className="pt-6">
+              <a 
+                href="https://x.com/aladdinnjr" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#1DA1F2] text-white hover:bg-[#1a8cd8] transition-colors"
+              >
+                <i className="fab fa-twitter text-lg"></i>
+                <span className="font-medium">@aladdinnjr</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-white">
         <div className="container mx-auto flex flex-col sm:flex-row gap-2 items-center">
